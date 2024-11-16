@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { MessageCircle } from 'lucide-react';
 
 const CircleChatSpinner = () => {
@@ -29,18 +29,5 @@ const CircleChatSpinner = () => {
   );
 };
 
-// Add required Tailwind CSS classes to your tailwind.config.js:
-// module.exports = {
-//   theme: {
-//     extend: {
-//       keyframes: {
-//         bounce: {
-//           '0%, 80%, 100%': { transform: 'translateY(0)' },
-//           '40%': { transform: 'translateY(-6px)' }
-//         }
-//       }
-//     }
-//   }
-// }
 
 export default CircleChatSpinner;

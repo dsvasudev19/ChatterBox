@@ -1,5 +1,5 @@
 
-import { Search, Settings, Send, MoreVertical, Phone, Video, ImagePlus, Plus, X } from 'lucide-react';
+import { Search, Send, MoreVertical, Phone, Video, ImagePlus, Plus, X } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { axiosInstance } from '../../axiosIntance';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -8,10 +8,6 @@ import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import socket from "./../../socket";
 import toast from 'react-hot-toast';
-import { Cloudinary } from '@cloudinary/url-gen';
-import { auto } from '@cloudinary/url-gen/actions/resize';
-import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
-import { AdvancedImage } from '@cloudinary/react';
 import axios from 'axios';
 
 const ChatterBox = () => {
@@ -26,9 +22,7 @@ const ChatterBox = () => {
   const [username, setUsername] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [suggestionsLoading, setSuggestionsLoading] = useState(false);
-  const cld = new Cloudinary({ cloud: { cloudName: 'dp8bdt1zu' } });
-  const [imageUploading, setImageUploading] = useState(false);
-
+  
   // Scroll to bottom function
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -153,7 +147,6 @@ const ChatterBox = () => {
       // Upload image if present
       let uploadedImageUrl = null;
       if (values.image) {
-        setImageUploading(true);
         try {
           const res = await axios.post('https://api.cloudinary.com/v1_1/dp8bdt1zu/image/upload', formData, {
             headers: {
@@ -169,9 +162,7 @@ const ChatterBox = () => {
           }
         } catch (error) {
           console.log(error);
-        } finally {
-          setImageUploading(false);
-        }
+        } 
       }
   
       // Send message with or without image attachment
@@ -273,7 +264,7 @@ const ChatterBox = () => {
                           
                         }}
                       >
-                        {({ values, setFieldValue }) => (
+                        {({setFieldValue }) => (
                           <Form className="space-y-4">
                             <div className="space-y-2">
                               <Field

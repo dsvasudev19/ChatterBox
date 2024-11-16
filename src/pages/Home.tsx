@@ -2,7 +2,7 @@ import { MessageCircle, Users, Shield, Zap, ChevronRight, CheckCircle, ArrowRigh
 import {useAuth} from './../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 const Home = () => {
-  const {user,loading} = useAuth();
+  const {user} = useAuth();
   const navigate = useNavigate();
   const features = [
     {
@@ -71,7 +71,7 @@ const Home = () => {
               {user ? (
                 <div className="relative group">
                   <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-100 to-green-100 shadow-sm flex items-center justify-center cursor-pointer">
-                    <span className="text-gray-600">
+                    <span className="text-gray-600 cursor-pointer" onClick={() => navigate('/profile')}>
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                       </svg>
@@ -105,9 +105,12 @@ const Home = () => {
               Connect with your team, friends, and community through instant messaging that's fast, secure, and reliable.
             </p>
             <div className="flex justify-center gap-4">
-              <button className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+              <a 
+                href={user ? "/chat" : "/register"}
+                className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+              >
                 Get Started Free <ChevronRight className="w-4 h-4" />
-              </button>
+              </a>
               <button className="px-8 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
                 Learn More
               </button>
