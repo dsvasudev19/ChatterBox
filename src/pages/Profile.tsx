@@ -2,8 +2,6 @@
 import { 
   User, 
   Mail, 
-  Phone, 
-  MapPin, 
   Building, 
   Calendar,
   Edit,
