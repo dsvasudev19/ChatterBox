@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  // baseURL: 'http://localhost:3000/api',
-  baseURL: 'https://chatter.interactweb.agency/api',
+  baseURL: 'http://localhost:3001/api',
+  // baseURL: 'https://chatter.interactweb.agency/api',
   withCredentials: true
 })
 

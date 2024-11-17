@@ -31,6 +31,7 @@ const Login = () => {
       if (res.status === 200) {
         toast.success("Logged in successfully");
         router('/chat');
+        window.location.reload();
       }
     } catch (error) {
       console.log(error)

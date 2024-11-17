@@ -31,7 +31,7 @@ const ChatterBox = () => {
   const isAtBottom = () => {
     if (chatContainerRef.current) {
       const container = chatContainerRef.current;
-      const threshold = 100; // pixels from bottom
+      const threshold = 100; 
       return container.scrollHeight - container.scrollTop - container.clientHeight <= threshold;
     }
     return true;
@@ -129,12 +129,21 @@ const ChatterBox = () => {
       };
       
       if (!values.image) {
+        const wasAtBottom = isAtBottom();
         setChatMessages((prevMessages: any) => [...prevMessages, message]);
+        if (wasAtBottom) {
+          setTimeout(scrollToBottom, 100);
+        }
       }
       if(values.image){
         message.attachment = "/2-cloud-upload.gif";
+        const wasAtBottom = isAtBottom();
+        setChatMessages((prevMessages: any) => [...prevMessages, message]);
+        if (wasAtBottom) {
+          setTimeout(scrollToBottom, 100);
+        }
       }
-      setChatMessages((prevMessages: any) => [...prevMessages, message]);
+      
   
       let formData;
       if (values.image) {
@@ -158,7 +167,11 @@ const ChatterBox = () => {
             uploadedImageUrl = res.data.secure_url; 
   
             message.attachment = uploadedImageUrl;
+            const wasAtBottom = isAtBottom();
             setChatMessages((prevMessages: any) => [...prevMessages.slice(0, -1), message]);
+            if (wasAtBottom) {
+              setTimeout(scrollToBottom, 100);
+            }
           }
         } catch (error) {
           console.log(error);
