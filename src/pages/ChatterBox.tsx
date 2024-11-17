@@ -456,13 +456,13 @@ const ChatterBox = () => {
                           }`}
                         >
                           {message.attachment && (
-                            <div className="mb-2 border-b border-gray-900">
+                            <div className="mb-2 border-b border-gray-900 pb-1">
                               {message.attachment && (
                                 <>
                                   <img 
                                     src={message.attachment} 
                                     alt="Attachment" 
-                                    className="rounded-lg max-w-[300px] hover:opacity-90 transition-opacity cursor-pointer"
+                                    className="rounded-lg max-w-[200px] hover:opacity-90 transition-opacity cursor-pointer"
                                     onClick={() => {
                                       const modalDiv = document.createElement('div');
                                       modalDiv.innerHTML = `
