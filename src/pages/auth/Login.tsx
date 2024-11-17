@@ -29,6 +29,7 @@ const Login = () => {
     try {
       const res = await axiosInstance.post('/auth/login', values);
       if (res.status === 200) {
+        localStorage.setItem("accessToken",res.data.data.token);
         toast.success("Logged in successfully");
         router('/chat');
         window.location.reload();

@@ -14,7 +14,7 @@ export const AuthProvider=({children}:{children:React.ReactNode})=>{
         try {
             const res=await axiosInstance.post('/auth/login',data);
             if(res.status===200){
-                setUser(res.data.user);
+                localStorage.setItem("accessToken",res.data.data.token);
             }
         } catch (error:any) {
             console.log(error)

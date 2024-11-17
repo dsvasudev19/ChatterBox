@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import socket from "./../../socket";
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import CircleChatSpinner from '../components/CircleChatSpinner';
 
 const ChatterBox = () => {
   const { user, loading } = useAuth();
@@ -227,7 +228,7 @@ const ChatterBox = () => {
 
   return (
     <>
-      {loading ? <div>Loading....</div> : (
+      {loading ? <div className='flex justify-center items-center h-screen'><CircleChatSpinner /></div> : (
         <div className="flex h-screen bg-gradient-to-br from-gray-50 to-gray-100">
           {/* Left Sidebar */}
           <div className="w-80 bg-white shadow-lg rounded-l-xl flex flex-col">
