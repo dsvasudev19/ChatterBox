@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const axiosInstance = axios.create({
   // baseURL: 'http://localhost:3000/api',
-  baseURL: 'http://chatter.interactweb.agency/api',
+  baseURL: 'https://chatter.interactweb.agency/api',
   withCredentials: true
 })
 
