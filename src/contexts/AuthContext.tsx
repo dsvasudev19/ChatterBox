@@ -55,6 +55,8 @@ export const AuthProvider=({children}:{children:React.ReactNode})=>{
             if(res.status===200){
                 setUser(null);
                 setAuthenticated(false);
+                localStorage.removeItem("accessToken");
+                window.location.href="/login";
             }
         } catch (error) {
             console.log(error)

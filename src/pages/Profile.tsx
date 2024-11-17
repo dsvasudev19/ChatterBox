@@ -13,7 +13,7 @@ import CircleChatSpinner from '../components/CircleChatSpinner';
 
 const ProfilePage = () => {
 
-  const { user, loading } = useAuth();
+  const { user, loading,logout } = useAuth();
 
   if (loading) {
     return (
@@ -108,6 +108,7 @@ const ProfilePage = () => {
 
                
                 <button 
+                  onClick={()=>{logout()}}
                   className="w-full flex items-center justify-center px-4 py-2 bg-red-400 hover:from-red-600 hover:bg-red-700 text-white rounded-lg transition-all duration-200 transform hover:scale-[1.02]"
                 >
                   <LogOut className="w-4 h-4 mr-2" />
