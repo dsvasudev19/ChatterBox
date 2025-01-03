@@ -151,7 +151,7 @@ const ChatterBox = () => {
         formData = new FormData();
         formData.append('file', values.image);
         formData.append('upload_preset', 'chatterbox'); 
-        formData.append('cloud_name', 'your_cloud_name');  
+        formData.append('cloud_name', 'dp8bdt1zu');  
       }
   
       // Upload image if present
